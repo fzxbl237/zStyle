@@ -1,0 +1,6 @@
+{
+  "module": "occds",
+  "fileNam": "test.sas",
+  "uniqueId" : "SUBJID",
+  "anyEvent": {"anyEvent": true}
+}

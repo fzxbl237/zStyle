@@ -1,10 +1,14 @@
 package com.kuntuo.codeBodyHandler.var;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Data
+@Component
+@ConfigurationProperties(prefix = "colvar")
 public class colVar {
     private String var;
 
@@ -14,7 +18,7 @@ public class colVar {
 
     private String show;
 
-    private String showDenom;
+    private Boolean showDenom=true;
 
-    private String inDenomDs;
+    private Boolean inDenomDs=true;
 }

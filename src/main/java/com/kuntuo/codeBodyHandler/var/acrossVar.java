@@ -18,7 +18,7 @@ public class acrossVar {
 
     private String limitOption;
 
-    private String eventLimit;
+    private Boolean eventLimit;
 
-    private String relatIndent;
+    private int relatIndent;
 }

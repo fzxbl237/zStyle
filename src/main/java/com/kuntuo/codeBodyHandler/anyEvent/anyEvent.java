@@ -8,4 +8,6 @@ public class anyEvent {
     private Boolean anyEvent;
 
     private String anyEventLabel;
+
+    private int anyEventIndent;
 }

@@ -13,6 +13,7 @@ public class MapUtil {
         if(module.toLowerCase().equals("occds")){
             occds body =  JSON.parseObject(jsonContent, occds.class);
             Class aClass = (Class) body.getClass();
+            //遍历子类中的所有属性
             Field[] field = aClass.getDeclaredFields();
             for (Field f : field) {
                 f.setAccessible(true);
@@ -20,6 +21,18 @@ public class MapUtil {
                 Object o=f.get(body);
                 map.put(attrNam,o);
             }
+            //遍历父类中的所有属性
+            if(aClass.getGenericSuperclass()!=null){
+                Class superclass = aClass.getSuperclass();
+                Field[] declaredFields = superclass.getDeclaredFields();
+                for (Field declaredField : declaredFields) {
+                    declaredField.setAccessible(true);
+                    String attrNam=declaredField.getName();
+                    Object o=declaredField.get(body);
+                    map.put(attrNam,o);
+                }
+            }
+
 
         }
         return map;
